@@ -1,24 +1,56 @@
-# README
+## DB設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## userテーブル
+|  Column   |  Type    |  Options                |
+|  ------   |  ------  |  ---------------------  |
+|  name     |  string  |  null: false            |
+|  email    |  string  |  null: false            |
+|  password |  string  |  null: false            |
+|  sex      |  integer |  null: false            |
+|  age      |  integer |  null: false            |
+|  remark   |  text    |  null: false            |
 
-Things you may want to cover:
+## Association
+- 
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+##  postテーブル
+|  Column   |  Type      |  Options                       |
+|  -------- |  ------    |  --------------------          |
+|  name     |  string    |  null: false                   |
+|  title    |  string    |  null: false                   |
+|  area     |  integer   |  null: false                   |
+|  genre    |  integer   |  null: false                   |
+|  date     |  string    |  null: false                   |
+|  address  |  string    |  null: false                   | 
+|  url      |  string    |  null: false                   |
+|  remark   |  text      |  null: false                   |
+|  user     |  references| null: false, foreign_key: true |
 
-* Database creation
+## Association
+-
+-
 
-* Database initialization
 
-* How to run the test suite
+## commentテーブル
+|  Column   |  Type    |  Options                |
+|  ------   |  ------  |  ---------------------  |
+|  user_id  |  string  |  null: false            |
+|  post_id  |  string  |  null: false            |
+|  text     |  text    |  null: false            |
 
-* Services (job queues, cache servers, search engines, etc.)
+## Association
+-
+-
 
-* Deployment instructions
 
-* ...
+## imageテーブル
+|  Column   |  Type        |  Options                        |
+|  ------   |  ------      |  -----------------------------  |
+|  url      |  string      |  null: false                    |
+|  post_id  |  references  |  null: false, foreign_key: true |
+
+## Association
+-
+-
