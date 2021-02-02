@@ -1,6 +1,6 @@
 ## DB設計
 
-## userテーブル
+## usersテーブル
 |  Column   |  Type    |  Options                |
 |  ------   |  ------  |  ---------------------  |
 |  name     |  string  |  null: false            |
@@ -11,11 +11,12 @@
 |  remark   |  text    |  null: false            |
 
 ## Association
-- 
+- has_many :posts
+- has_many :comments
 
 
 
-##  postテーブル
+##  postsテーブル
 |  Column   |  Type      |  Options                       |
 |  -------- |  ------    |  --------------------          |
 |  name     |  string    |  null: false                   |
@@ -29,11 +30,12 @@
 |  user     |  references| null: false, foreign_key: true |
 
 ## Association
--
--
+- belongs_to :user
+- has_many :comments
+- has_many :images
 
 
-## commentテーブル
+## commentsテーブル
 |  Column   |  Type    |  Options                |
 |  ------   |  ------  |  ---------------------  |
 |  user_id  |  string  |  null: false            |
@@ -41,16 +43,16 @@
 |  text     |  text    |  null: false            |
 
 ## Association
--
--
+- belongs_to :user
+- belongs_to :post
 
 
-## imageテーブル
+## imagesテーブル
 |  Column   |  Type        |  Options                        |
 |  ------   |  ------      |  -----------------------------  |
 |  url      |  string      |  null: false                    |
 |  post_id  |  references  |  null: false, foreign_key: true |
 
 ## Association
--
--
+- belongs_to :post
+
